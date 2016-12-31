@@ -65,4 +65,43 @@ tiles(scale:2) {
     )
     log.debug result.toString()
     sendHubCommand(result);
+    
+       	def ok = new physicalgraph.device.HubAction(
+            method: "POST",
+            path: "/apps/vr/browserseturl",
+            body: ("""<?xml version="1.0" ?><remote><key code="1053"/></remote>"""),
+            headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
+    )
+    log.debug result.toString()
+    sendHubCommand(ok);
+}
+
+ def off() {
+ 
+ def exit = new physicalgraph.device.HubAction(
+            method: "POST",
+            path: "/apps/vr/browserseturl",
+            body: ("""<?xml version="1.0" ?><remote><key code="1037"/></remote>"""),
+            headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
+    )
+    log.debug result.toString()
+    sendHubCommand(exit);
+    
+    def right = new physicalgraph.device.HubAction(
+            method: "POST",
+            path: "/apps/vr/browserseturl",
+            body: ("""<?xml version="1.0" ?><remote><key code="1022"/></remote>"""),
+            headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
+    )
+    log.debug result.toString()
+    sendHubCommand(right);
+    
+      	def ok = new physicalgraph.device.HubAction(
+            method: "POST",
+            path: "/apps/vr/browserseturl",
+            body: ("""<?xml version="1.0" ?><remote><key code="1053"/></remote>"""),
+            headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
+    )
+    log.debug result.toString()
+    sendHubCommand(ok);
 }

@@ -53,24 +53,61 @@ tiles(scale:2) {
  }
 
  def on() {
-	def mute = new physicalgraph.device.HubAction(
+	def on = new physicalgraph.device.HubAction(
             method: "POST",
             path: "/apps/vr/browserseturl",
             body: ("""<?xml version="1.0" ?><remote><key code="1031"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
     log.debug result.toString()
-    sendHubCommand(mute);
+    sendHubCommand(on);
+    
+    	def up = new physicalgraph.device.HubAction(
+            method: "POST",
+            path: "/apps/vr/browserseturl",
+            body: ("""<?xml version="1.0" ?><remote><key code="1020"/></remote>"""),
+            headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
+    )
+    log.debug result.toString()
+    sendHubCommand(up);
+    
+          	def ok = new physicalgraph.device.HubAction(
+            method: "POST",
+            path: "/apps/vr/browserseturl",
+            body: ("""<?xml version="1.0" ?><remote><key code="1053"/></remote>"""),
+            headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
+    )
+    log.debug result.toString()
+    sendHubCommand(ok);
 }
 
 
  def off() {
-	def mute = new physicalgraph.device.HubAction(
+	def subtitle = new physicalgraph.device.HubAction(
             method: "POST",
             path: "/apps/vr/browserseturl",
             body: ("""<?xml version="1.0" ?><remote><key code="1031"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
     log.debug result.toString()
-    sendHubCommand(mute);
+    sendHubCommand(subtitle);
+
+      
+    	def down = new physicalgraph.device.HubAction(
+            method: "POST",
+            path: "/apps/vr/browserseturl",
+            body: ("""<?xml version="1.0" ?><remote><key code="1019"/></remote>"""),
+            headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
+    )
+    log.debug result.toString()
+    sendHubCommand(down);
+    
+        	def ok = new physicalgraph.device.HubAction(
+            method: "POST",
+            path: "/apps/vr/browserseturl",
+            body: ("""<?xml version="1.0" ?><remote><key code="1053"/></remote>"""),
+            headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
+    )
+    log.debug result.toString()
+    sendHubCommand(ok);
 }
