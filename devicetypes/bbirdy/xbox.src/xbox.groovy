@@ -61,7 +61,7 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1056"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug source.toString()
     sendHubCommand(source);
     def hdmi4 = new physicalgraph.device.HubAction(
             method: "POST",
@@ -69,15 +69,13 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1006"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug hdmi4.toString()
     sendHubCommand(hdmi4);
-}
-
-def myWOLCommand() {
-    def result = new physicalgraph.device.HubAction (
-        "wake on lan bc8385843a6f",
-        physicalgraph.device.Protocol.LAN,
-        null,
-    )
-    return result
+    
+    def ip = "192.168.0.62:5050"
+    def deviceNetworkId = "C0A8003E:13ba"
+    def x = new physicalgraph.device.HubAction("${cmd}\r\nHOST: $ip\r\n\r\n", physicalgraph.device.Protocol.LAN)
+    x.options = [type:"LAN_TYPE_UDPCLIENT"]
+    sendHubCommand(x)
+    log.debug x.toString()
 }

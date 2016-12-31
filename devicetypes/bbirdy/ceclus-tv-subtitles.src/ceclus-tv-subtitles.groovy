@@ -59,7 +59,7 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1031"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug on.toString()
     sendHubCommand(on);
     
     	def up = new physicalgraph.device.HubAction(
@@ -68,7 +68,7 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1020"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug up.toString()
     sendHubCommand(up);
     
           	def ok = new physicalgraph.device.HubAction(
@@ -77,7 +77,7 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1053"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug ok.toString()
     sendHubCommand(ok);
 }
 
@@ -89,7 +89,7 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1031"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug subtitle.toString()
     sendHubCommand(subtitle);
 
       
@@ -99,7 +99,7 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1019"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug down.toString()
     sendHubCommand(down);
     
         	def ok = new physicalgraph.device.HubAction(
@@ -108,6 +108,6 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1053"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug ok.toString()
     sendHubCommand(ok);
 }

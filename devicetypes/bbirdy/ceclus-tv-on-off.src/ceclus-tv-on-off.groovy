@@ -53,24 +53,6 @@ tiles(scale:2) {
   }
  }
 
-/*
- def on() {
-   log.debug "Executing 'on'"
-    def result = new physicalgraph.device.HubAction("1012", physicalgraph.device.Protocol.LAN, ipadd+":"+tv_port)
-    log.debug ipadd+":"+tv_port
-    log.debug macadd+":"+tv_port
-    log.debug result.toString()
-    sendHubCommand(result);
-  
-}
-
-def off() {
-   log.debug "Executing 'off'"
-   def result = new physicalgraph.device.HubAction("1012", physicalgraph.device.Protocol.LAN, "C0A8003C:1234")
-    log.debug result.toString()
-    sendHubCommand(result);
-}
-*/
 
  def on() {
 	def source = new physicalgraph.device.HubAction(
@@ -79,7 +61,7 @@ def off() {
             body: ("""<?xml version="1.0" ?><remote><key code="1012"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug source.toString()
     sendHubCommand(source);
 }
 
@@ -90,6 +72,6 @@ def off() {
             body: ("""<?xml version="1.0" ?><remote><key code="1012"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug source.toString()
     sendHubCommand(source);
 }

@@ -61,7 +61,7 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1056"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug source.toString()
     sendHubCommand(source);
     def hdmi3 = new physicalgraph.device.HubAction(
             method: "POST",
@@ -69,6 +69,6 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1005"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug hdmi3.toString()
     sendHubCommand(hdmi3);
 }

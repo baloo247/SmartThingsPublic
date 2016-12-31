@@ -74,6 +74,6 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1037"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug exit.toString()
     sendHubCommand(exit);
 }

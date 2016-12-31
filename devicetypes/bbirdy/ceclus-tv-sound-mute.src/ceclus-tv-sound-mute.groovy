@@ -59,7 +59,7 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1013"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug mute.toString()
     sendHubCommand(mute);
 }
 
@@ -71,6 +71,6 @@ tiles(scale:2) {
             body: ("""<?xml version="1.0" ?><remote><key code="1013"/></remote>"""),
             headers: ["Content-Type":"text/plain"+" ; "+"charset=ISO-8859-1",Host:"${ipadd}:${smartapp_port}"]
     )
-    log.debug result.toString()
+    log.debug mute.toString()
     sendHubCommand(mute);
 }
